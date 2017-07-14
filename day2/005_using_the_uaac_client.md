@@ -146,3 +146,5 @@ uaac member add scim.write MyAdminUser
 
 To each one of these commands, the UAAC will respond with a `success` message.
 Now, your new user is an `admin`!
+
+Take a look at the [UAA scopes](https://docs.cloudfoundry.org/concepts/architecture/uaa.html#uaa-scopes) and what they mean.
