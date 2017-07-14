@@ -10,42 +10,6 @@ In this section, you will learn:
 ### Introduction
 
 From time to time, you might face some issues when working with Cloud Foundry. You can troubleshoot these issues in a number of ways, but Cloud Foundry's CLI provides some convenient out-of-the box functionality, which makes finding and fixing bugs a lot easier.
-### Prerequisites to the lesson
-
-Install CF-CLI. To download the .deb package, use cURL:
-```sh
-curl -o cf_cli.deb -J -L 'https://cli.run.pivotal.io/stable?release=debian64&version=6.21.1&source=github-rel'
-```
-
-Then, to install it, simply run:
-
-```sh
-sudo dpkg -i cf_cli.deb
-```
-Check, whether CF-CLI has been successfully installed by typing: 
-
-```sh
-cf --version
-```
-
-In case of successfull installation, you will see the following output:
-
-```sh
-$ cf --version
-cf version 6.14.0+2654a47-2015-11-18
-```
-Install git by running the following command:
-
-```sh
-sudo apt-get update
-sudo apt-get install git -y
-```
-Сonnect to Cloud Foundry's API, using the cf api command from the previous lessons.
-
-```sh
-cf api --skip-ssl-validation https://api.YOUR_CF_DOMAIN
-```
-Finally provide your credentials using `cf login` command and use `admin / admin ` login and password.
 
 ### Using `CF_TRACE`
 
