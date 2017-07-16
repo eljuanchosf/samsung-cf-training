@@ -1,6 +1,14 @@
 # Day 3 excercises
 
-## 1 - Fix the deployment
+## 1 - Blue/Green deployment script
+
+1. Copy the source code of the `cf-example-sinatra` application to the directory `cf-example-sinatra-green`:
+`cp cf-example-sinatra cf-example-sinatra-green -R`
+2. Open the `public/style.css` file and change the `header.background` property to `#00cc00`.
+
+**Your mission**: create a `bash` script that will do blue/green deployment on the `cf-sinatra-example` application, deploying firs the "blue" version and then the "green" version.
+
+## 2 - Fix the deployment
 
 1. Get the manifest file:
 `curl -o manifest.yml -J -L 'https://raw.githubusercontent.com/eljuanchosf/samsung-cf-training/master/day3/manifest.yml'`
@@ -28,5 +36,3 @@ YOUR_SUBNET_ID
 Nice error, huh?
 
 **Your mission**: try to fix the `manifest.yml` file by applying all the platform troubleshooting techniques learned in class.
-
-## 2 - Create your own buildpack
