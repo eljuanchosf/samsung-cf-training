@@ -3,9 +3,9 @@
 ## 1 - Fix the deployment
 
 1. Get the manifest file:
-`curl -o cf_cli.deb -J -L 'https://cli.run.pivotal.io/stable?release=debian64&source=github'`
+`curl -o manifest.yml -J -L 'https://raw.githubusercontent.com/eljuanchosf/samsung-cf-training/master/day3/manifest.yml'`
 
-2. Replace all the occurences of the values:
+2. Replace all the occurences of the following placeholders with the values for your deployment:
 ```
 YOUR_CF_ELASTIC_IP
 YOUR_AVAILABILITY_ZONE
