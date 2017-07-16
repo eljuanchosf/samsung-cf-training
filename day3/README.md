@@ -36,3 +36,9 @@ YOUR_SUBNET_ID
 Nice error, huh?
 
 **Your mission**: try to fix the `manifest.yml` file by applying all the platform troubleshooting techniques learned in class.
+
+## 3 - Create your own Buildpack!
+
+Follow the instructions in [this tutorial](001_create_buildpack.md).
+
+**Your mission**: have a custom buildpack ready!
