@@ -30,10 +30,14 @@ YOUR_SUBNET_ID
 5. Once Cloud Foundry has been deployed, deploy the `cf-example-sinatra` application:
 `cf push my-sinatra-app`
 
-6. Now, try to tail the logs:
-`cf logs my-sinatra-app`
+6. Install the CF Firehose plugin:
+`cf install-plugin "Firehose Plugin" -r CF-Community`
 
-Nice error, huh?
+6. Now, try to tail the logs:
+`cf nozzle`
+And select the 'LogMessage' option.
+
+Nice error, huh? It will return that you are **NOT** authorized, when you should be... what could be happening?
 
 **Your mission**: try to fix the `manifest.yml` file by applying all the platform troubleshooting techniques learned in class.
 
