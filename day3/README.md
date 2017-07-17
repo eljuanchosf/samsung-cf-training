@@ -27,7 +27,7 @@ YOUR_SUBNET_ID
 4. Deploy!
 `bosh -n deploy`
 
-5. Once Cloud Foundry has been deployed, deploy the `cf-example-sinatra` applicatiob:
+5. Once Cloud Foundry has been deployed, deploy the `cf-example-sinatra` application:
 `cf push my-sinatra-app`
 
 6. Now, try to tail the logs:
