@@ -28,7 +28,7 @@
 1. Save DB connection URL.
   ```exec
   mkdir ~/deployment
-  pg_url=postgresql://postgres:some_password@{{curl --silent http://169.254.169.254/latest/meta-data/public-ipv4}}:5432/postgres
+  pg_url=postgresql://postgres:some_password@YOUR_IP:5432/postgres
 
   echo "export pg_url=$pg_url" > ~/deployment/vars
   ```
@@ -267,7 +267,7 @@ govendor add +external
 
 1. Bind the security group to your ORG and SPACE
   ```exec
-  cf bind-security-group postgresql {{ cf target | grep ^Org: | awk '{print $2}' }} {{ cf target | grep ^Space: | awk '{print $2}' }}
+  cf bind-security-group postgresql YOUR_ORG YOUR_SPACE
   ```
 ## Push the broker to the Cloud Foundry
 
