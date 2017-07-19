@@ -65,14 +65,13 @@ Add the following lines to the manifest, right into the UAA Clients section (`pr
 
 ```
 influxdb-firehose-nozzle:
-  value:
-    access-token-validity: 1209600
-    authorized-grant-types: authorization_code,client_credentials,refresh_token
-    override: true
-    secret: password
-    scope: openid,oauth.approvals,doppler.firehose
-    authorities: oauth.login,doppler.firehose
-    redirect-uri: “localhost”
+  access-token-validity: 1209600
+  authorized-grant-types: authorization_code,client_credentials,refresh_token
+  override: true
+  secret: password
+  scope: openid,oauth.approvals,doppler.firehose
+  authorities: oauth.login,doppler.firehose
+  redirect-uri: “localhost”
 ```
 
 Save and exit
