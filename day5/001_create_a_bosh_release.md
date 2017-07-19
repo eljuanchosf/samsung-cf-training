@@ -393,21 +393,11 @@ git clone https://github.com/Altoros/greeter.git ~/greeter-release/src/greeter
 ### Configure your AWS account
 
 1. Add a rule to allow router-app traffic:
-```exec
-source ~/deployment/vars
-greeter_sg_id=$(aws ec2 create-security-group --vpc-id $vpc_id --group-name greeter --description "Greeter Security Group" --query 'GroupId' --output text)
-aws ec2 create-tags --resources $greeter_sg_id --tags Key=Name,Value=greeter
-aws ec2 authorize-security-group-ingress --group-id $greeter_sg_id --ip-permissions '[{"IpProtocol": "tcp", "FromPort": 8080, "ToPort": 8080, "IpRanges": [{"CidrIp": "0.0.0.0/0"}]}]'
-echo "export greeter_sg_id=$greeter_sg_id" >> ~/deployment/vars
-```
 
-2. Create an Elastic IP for the router job:
-```exec
-eip_greeter_id=$(aws ec2 allocate-address --domain vpc --query 'AllocationId' --output text)
-eip_greeter=$(aws ec2 describe-addresses --allocation-ids $eip_greeter_id --query 'Addresses[].PublicIp' --output text)
-echo "export eip_greeter=$eip_greeter" >> ~/deployment/vars
-echo "export eip_greeter_id=$eip_greeter_id" >> ~/deployment/vars
-```
+a. Create a new security group and call it `greeter`, description `Greeter Security Group`, and select the BOSH VPC.
+b. Add an inbound rule to that security group that authorizes traffic on ports 8080 from the CIDR `0.0.0.0/0`
+c. Create an Elastic IP for the `router` job.
+
 ### Configure the blobstore
 
 Save the following file as `config/final.yml`:
@@ -548,15 +538,7 @@ In your `~/deployment/greeter.yml` manifest:
 1. Increase the number of instances in `/jobs/name=app/instances` by 1
 1. Append `10.0.0.9:8080` to the `/jobs/name=router/properties/upstreams/-` array
 
-
-The best way to do this is to create an opfile. We are leaving the creation of such file as an excesse to the users. Another option s to update the manifest manually.
-Note, that when identifying properties path we use the same syntax, as it is used in opfiles, so them can be copied directly.
-
-Deploy once again:
-
-```exec
-bosh  -d greeter-release -n  deploy -o ~/deployment/greeter-opfile.yml ~/deployment/greeter.yml
-```
+Deploy again with `bosh -n deploy`
 
 And if you `curl` the router multiple times, you should see greetings from different upstreams:
 
