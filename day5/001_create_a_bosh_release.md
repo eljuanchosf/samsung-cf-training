@@ -395,8 +395,10 @@ git clone https://github.com/Altoros/greeter.git ~/greeter-release/src/greeter
 1. Add a rule to allow router-app traffic:
 
 a. Create a new security group and call it `greeter`, description `Greeter Security Group`, and select the BOSH VPC.
+
 b. Add an inbound rule to that security group that authorizes traffic on ports 8080 from the CIDR `0.0.0.0/0`
-c. Create an Elastic IP for the `router` job.
+
+2. Create an Elastic IP for the `router` job.
 
 ### Configure the blobstore
 
