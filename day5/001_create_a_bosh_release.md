@@ -3,8 +3,7 @@
 Run the following commands to intialize a new release:
 ```exec
 mkdir   ~/greeter-release
-cd ~/greeter-release
-bosh init-release
+bosh init release greeter-release
 ```
 
 After executing this command, the filesystem tree should look like this:
@@ -24,7 +23,7 @@ $ tree
 Create a router job with:
 ```exec
 cd ~/greeter-release
-bosh generate-job router
+bosh generate job router
 ```
 
 After executing this command, the filesystem tree should look like this:
@@ -143,7 +142,7 @@ Generate a job:
 
 ```exec
 cd ~/greeter-release
-bosh generate-job app
+bosh generate job app
 ```
 
 After executing this command, the file system tree should look similar to this:
@@ -250,7 +249,7 @@ exit 0
 Generate the Ruby package:
 ```exec
 cd ~/greeter-release
-bosh generate-package ruby
+bosh generate package ruby
 ```
 
 After executing this command, the filesystem tree should look similar to this:
@@ -321,7 +320,7 @@ curl https://rubygems.org/downloads/bundler-1.11.2.gem --create-dirs -o blobs/ru
 Generate the greeter package with:
 ```exec
 cd ~/greeter-release
-bosh generate-package greeter
+bosh generate package greeter
 ```
 
 After executing this command, the filesystem tree should look similar to this:
@@ -519,7 +518,8 @@ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-aws-xen-hvm-ubuntu-trusty-
 Finally, everything is ready for deployment:
 
 ```exec
-bosh -d greeter-release -n  deploy ~/deployment/greeter.yml
+bosh deployment ~/deployment/greeter.yml
+bosh -n deploy
 ```
 
 Let's check if everything has been deployed as intended:
